@@ -16,8 +16,8 @@
     </nav>
     <br>
     <div class="container bg-light">
-<center><h1 class=>Daftar Login</h1></center>
-<br>
+      <center><h1 class=>Daftar Login</h1></center>
+      <br>
       <form action="/api/v1/todos/submit" method="post">
         <div class="form-group">
           <label for="inputEmail4">Username</label>

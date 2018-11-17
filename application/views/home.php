@@ -38,7 +38,7 @@
             <a class="nav-link disabled" href="#">Disabled</a>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
+        <form  action="Index.php/home/searchPage"class="form-inline my-2 my-lg-0">
           <input id="inputBarang"class="form-control mr-sm-2" type="search" placeholder="Cari disni" aria-label="Search" list="cariBarang">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           <datalist id="cariBarang">
@@ -52,7 +52,7 @@
 
         </form>
         <a class="nav-link" href="<?php echo base_url('/Index.php/home/loginPage') ?>">Login <span class="sr-only"></span></a>
-          <a class="nav-link" href="#">Daftar <span class="sr-only"></span></a>
+          <a class="nav-link" href="<?php echo base_url('/Index.php/home/signupPage') ?>">Daftar <span class="sr-only"></span></a>
       </div>
     </nav>
   </div>
@@ -62,12 +62,17 @@
 <!-- Content-->
 
 
-<?php
-$loc= "C:/xampp/htdocs/ProjectWeb1/assets/product";
-$dir = scandir($loc);
-foreach ($dir as $dt){
-  echo "<img src= '".base_url('/assets/product/'.$dt)."'>"."<br><br>";
-}?>
+<div class="container">
+  <img src="<?php base_url('assets/product/photo1.jpg') ?>">
+  <?php
+  $loc= "C:/xampp/htdocs/ProjectWeb1/assets/product";
+  $dir = scandir($loc);
+  foreach ($dir as $dt){
+    echo "<img src= '".base_url('/assets/product/'.$dt)."'>"."<br><br>";
+  } ?>
+</div>
+
+
 
 
 
