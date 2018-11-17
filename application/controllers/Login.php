@@ -8,15 +8,7 @@ class Home extends CI_Controller
     $this->load->model("Model_data");
   }
 
-  function loginPage()
-  {
-    $this->load->view('login');
-  }
-
-  function signupPage()
-  {
-    $this->load->view('signup');
-  }
+  
 }
 
 ?>
