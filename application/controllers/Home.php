@@ -27,6 +27,22 @@ class Home extends CI_Controller
   {
     $this->load->view('search');
   }
+
+  function home_user()
+  {
+    $this->load->view('home_user');
+  }
+
+  function produck()
+  {
+    $this->load->view('produck');
+  }
+
+  function cash()
+  {
+    $this->load->view('cash');
+  }
+
 }
 
 ?>

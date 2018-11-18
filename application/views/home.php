@@ -10,7 +10,7 @@
 
   <div class="container-fluid">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Jual-Jual</a>
+      <a class="navbar-brand" href="#">Jual-Beli Online</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -61,22 +61,21 @@
 
 <!-- Content-->
 
-
+<br>
 <div class="container">
-  <img src="<?php base_url('assets/product/photo1.jpg') ?>">
+  <ul class="list-unstyled">
+  <img src=" <?php echo base_url('/assets/product/photo1.jpg') ?> ">
   <?php
   $loc= "C:/xampp/htdocs/ProjectWeb1/assets/product";
   $dir = scandir($loc);
   foreach ($dir as $dt){
-    echo "<img src= '".base_url('/assets/product/'.$dt)."'>"."<br><br>";
+    echo "<li class='media'>";
+    echo "<img class='mr-3' src= '".base_url('assets/product/'.$dt)."'>";
+    echo "<div class='media-body'><h5 class='mt-0 mb-1'>Cuman Contoh</h5>Contoh Dari Hasil Gambar</div>";
+    echo "</li><br>";
   } ?>
+</ul>
 </div>
-
-
-
-
-
-
 
 
     <script src="<?php echo base_url('assets/bootstrap/js/jquery-3.3.1.slim.min.js') ?>" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
