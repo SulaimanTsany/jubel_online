@@ -6,11 +6,14 @@ class Home extends CI_Controller
   {
     parent:: __construct();
     $this->load->model("Model_data");
+    $this->load->model("Model_Item");
   }
 
   public function index()
 	{
-		$this->load->view('home');
+        $items['items'] = $this->Model_Item->getAll()->result();
+        //var_dump($items);
+		$this->load->view('home', $items);
 	}
 
   function loginPage()
