@@ -31,10 +31,10 @@
         <div class="btn-group">
             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
               <span class="fas fa-user"></span> Nama
-              <?php /*echo $data['nama'] */ ?>
+
             </button>
             <div class="dropdown-menu dropdown-menu-right">
-              <button class="dropdown-item" type="button"> <span class="fas fas-sign-out-alt"></span> Keluar</button>
+              <button class="dropdown-item" type="button"><span class="fas fas-sign-out-alt"></span> Keluar</button>
               <button class="dropdown-item" type="button">Ganti Password</button>
             </div>
         </div>
