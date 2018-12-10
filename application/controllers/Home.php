@@ -8,7 +8,7 @@ class Home extends CI_Controller
     $this->load->model("Model_data");
     $this->load->model("Model_Item");
     $this->load->model("M_data");
-  
+
   }
 
   public function index()
@@ -17,6 +17,21 @@ class Home extends CI_Controller
         //var_dump($items);
 		$this->load->view('home', $items);
 	}
+
+  public function login(){
+    if($this->m_data->logged_id())
+    {
+      //jika memang session sudah terdaftar, maka redirect ke halaman dahsboard
+      redirect("Home/index");
+    }
+
+  }
+
+  public function search(){
+    $keyword = $this->input->post('keyword');
+    $data['products']=$this->product_m->get_product_keyword($keyword);
+    $this->load->view('search',$data);
+  }
 
   function loginPage()
   {
