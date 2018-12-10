@@ -14,7 +14,6 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-<<<<<<< Updated upstream
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
@@ -56,7 +55,6 @@
   </div>
 </nav>
 
-=======
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
@@ -103,7 +101,6 @@
       </div>
     </nav>
   </div>
->>>>>>> Stashed changes
 <!-- NavbarEnd -->
 
 <!-- Content-->
@@ -111,6 +108,7 @@
 <br>
 <div class="container">
     <a class="btn" href="<?php echo base_url('/Index.php/ItemController/create') ?>">Add New Item</a>
+    <a class="btn" href="<?php echo base_url('/Index.php/CategoryController/index') ?>">Index Category</a>
     <br>
 
 
@@ -121,7 +119,7 @@
             <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
-                <a href="#">
+                <a href="<?php echo base_url('/Index.php/ItemController/show/').$item->id ?>">
                     <?php echo $item->name ?>
                 </a>
               </h4>
@@ -137,7 +135,6 @@
         <?php } ?>
       </div>
 </div>
-<<<<<<< Updated upstream
 
 
 <script src="<?php echo base_url('assets/bootstrap/js/jquery-3.3.1.slim.min.js') ?>" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

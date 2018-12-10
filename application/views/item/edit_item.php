@@ -10,6 +10,10 @@
           <input type="text" class="form-control" value="<?php echo $item['name'] ?>" name="name">
         </div>
         <div class="form-group">
+          <label>Kode Barang</label>
+          <input type="text" class="form-control" value="<?php echo $item['code'] ?>" name="code">
+        </div>
+        <div class="form-group">
           <label>Harga Barang (Rp)</label>
           <input type="number" class="form-control" value="<?php echo $item['price'] ?>" name="price">
         </div>
@@ -19,6 +23,6 @@
         </div>
         <input type="text" name="id" value="<?php echo $item['id'] ?>" hidden>
         <button type="submit" class="btn">Update</button>
-        
+
     </form>
 </div>

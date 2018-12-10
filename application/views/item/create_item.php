@@ -10,6 +10,18 @@
           <input type="text" class="form-control" placeholder="nama barang" name="name">
         </div>
         <div class="form-group">
+          <label>Kode Barang</label>
+          <input type="text" class="form-control" placeholder="barcode" name="code">
+        </div>
+        <div class="form-group">
+          <label>Kategori Barang</label>
+          <select class="form-control" name="category_id">
+            <?php foreach ($categories as $category) {?>
+            <option value="<?php echo $category->id ?>"><?php echo $category->name ?></option>
+            <?php } ?>
+          </select>
+        </div>
+        <div class="form-group">
           <label>Harga Barang (Rp)</label>
           <input type="number" class="form-control" placeholder="harga barang" name="price">
         </div>
