@@ -14,13 +14,17 @@ class M_data extends CI_Model
         return $data;
     }
 
+		function cek_login($table,$where){
+		return $this->db->get_where($table,$where);
+		}	
+
     function insertUser($data) {
-        $query = ($this->db->insert('user1', $data)) ? TRUE : FALSE ;
+        $query = ($this->db->insert('user', $data)) ? TRUE : FALSE ;
         return $query;
     }
 
     function updateUserById($id, $data) {
-        $query = ($this->db->where("id", $id)->update('user1', $data)) ? TRUE : FALSE ;
+        $query = ($this->db->where("id", $id)->update('user', $data)) ? TRUE : FALSE ;
         return $query;
     }
 

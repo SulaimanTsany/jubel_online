@@ -19,5 +19,6 @@
         </div>
         <input type="text" name="id" value="<?php echo $item['id'] ?>" hidden>
         <button type="submit" class="btn">Update</button>
+        
     </form>
 </div>

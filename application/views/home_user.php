@@ -1,5 +1,7 @@
 <?php $this->load->view('header'); ?>
+<div class="container">
+  <p>Ini adalah Home</p>
+</div>
 
-<h1>Ini adalah Home</h1>
 
 <?php $this->load->view('footer'); ?>
