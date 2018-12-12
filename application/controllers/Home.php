@@ -14,7 +14,7 @@ class Home extends CI_Controller
   public function index()
 	{
         $items['items'] = $this->Model_Item->getAll()->result();
-        //var_dump($items);
+        //var_dump($);
 		$this->load->view('home', $items);
 	}
 
