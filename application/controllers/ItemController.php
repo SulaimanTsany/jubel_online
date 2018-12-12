@@ -27,10 +27,11 @@ class ItemController extends CI_Controller
     public function create()
     {
         //return view for add new data
-        $categories['categories'] = $this->Model_Category->getAll()->result();
+        $data['categories'] = $this->Model_Category->getAll()->result();
+        $data['auth'] = $this->isLoggedIn();
         $error = "";
-        $this->load->view('layout/app_header');
-        $this->load->view('item/create_item', $categories);
+        $this->load->view('layout/app_header', $data);
+        $this->load->view('item/create_item', $data);
         $this->load->view('layout/app_footer');
     }
 
@@ -118,6 +119,12 @@ class ItemController extends CI_Controller
         //delete a data from database
         $this->Model_Item->delete($id);
         $this->index();
+    }
+
+    private function isLoggedIn(){
+        if($this->session->userdata('username') != null)
+            return true;
+        return false;
     }
 
 }

@@ -1,6 +1,7 @@
 <body id="LoginForm">
     <div class="container">
-    <h1 class="form-heading">Login Form</h1>
+        <br>
+        <br>
         <div class="login-form">
             <div class="main-div">
                 <div class="panel">
