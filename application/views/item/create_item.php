@@ -29,21 +29,15 @@
           <label>Jumlah</label>
           <input type="number" class="form-control" name="amount">
         </div>
+        <!--
         <div class="form-group">
-          <label>Massukkan Gambar Produk</label>
-          <input type="file" class="form-control" id="filegambar" placeholder="Pilih gambar file" accept=".png, .jpeg, .jpg" >
-          <script type="text/javascript">
-            function getFilePath(){
-              $('input[type=file]').change(function () {
-                var filePath=$('#filegambar').val();
-                console.log(filePath);
-              });
-            }
-          </script>
-
+            <label for="exampleInputFile">Choose Image</label>
+            <input type="file" class="form-control-file" name="image">
         </div>
-
-
-        <button type="submit" class="btn">Add</button>
+        -->
+        <button type="submit" class="btn">Tambahkan</button>
     </form>
+
+    <br>
+
 </div>

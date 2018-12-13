@@ -21,7 +21,12 @@
       <input id="inputBarang" name="inputBarang"class="form-control mr-sm-2" type="search" placeholder="Cari disni" aria-label="Search" list="cariBarang">
       <button class="btn btn-outline-success my-2 my-sm-0" value="caribarang" type="submit">Search</button>
     </form>
-    <a class="nav-link" href="<?php echo base_url('/Index.php/home/islogin') ?>">Login <span class="sr-only"></span></a>
-      <a class="nav-link" href="<?php echo base_url('/Index.php/home/signupPage') ?>">Daftar <span class="sr-only"></span></a>
-  </div>
+    <?php if ($auth) { ?>
+        <a class="nav-link" href=""><?php echo $this->session->userdata('username')?><span class="sr-only"></span></a>
+        <a class="nav-link" href="<?php echo base_url('/Index.php/auth/logout') ?>">Logout<span class="sr-only"></span></a>
+    <?php } else {?>
+        <a class="nav-link" href="<?php echo base_url('/Index.php/auth/login') ?>">Login<span class="sr-only"></span></a>
+        <a class="nav-link" href="<?php echo base_url('/Index.php/auth/register') ?>">Register<span class="sr-only"></span></a>
+    <?php } ?>
+     </div>
 </nav>
