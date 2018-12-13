@@ -15,7 +15,7 @@
     <div class="container " style="padding-top:12%; padding-left:23%; padding-right:23%; padding-bottom:20%; ">
 <center><h1 class=>Login</h1></center>
 <br>
-      <form action="<?php base_url('/index.php/login/loginhome'); ?>" method="post">
+      <form action="<?php echo base_url('index.php/home/islogin') ?>" method="post">
         <div class="form-group">
           <label for="inputEmail4">Username</label>
           <input type="text" class="form-control" name= "name" id="name" placeholder="Username">
