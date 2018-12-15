@@ -107,6 +107,7 @@ class ItemController extends CI_Controller
         $cari = $this->input->post("inputBarang");
         $profil['auth'] = $this->Model_user->isLoggedIn();
         $data['item'] = $this->Model_Item->get($id);
+        $data['categories'] = $this->Model_Category->getAll()->result();
         $this->load->view('layout/app_header',$profil);
         $this->load->view('item/edit_item', $data );
         $this->load->view('layout/app_footer');

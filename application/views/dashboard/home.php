@@ -10,11 +10,11 @@
             <div class="card-body">
               <h5 class="card-title">
                 <a href="<?php echo base_url('/Index.php/ItemController/show/').$item->id ?>">
-                    <?php echo strtoupper($item->name) ?>
+                    <?php echo ($item->name) ?>
                 </a>
             </h5>
               <h6>
-                  <?php echo "Rp ".$item->price ?>
+                  <?php echo convert_to_rupiah($item->price) ?>
               </h6>
               <p class="card-text">Stock = <?php echo $item->amount ?></p>
             </div>
@@ -23,8 +23,3 @@
         <?php } ?>
       </div>
 </div>
-
-
-<script src="<?php echo base_url('assets/bootstrap/js/jquery-3.3.1.slim.min.js') ?>" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="<?php echo base_url('assets/bootstrap/js/popper.min.js') ?>" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js') ?>" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>

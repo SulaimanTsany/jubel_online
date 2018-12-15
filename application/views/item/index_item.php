@@ -8,6 +8,7 @@
                 <th>Name</th>
                 <th>Kode</th>
                 <th>Stock</th>
+                <th>Kategori</th>
                 <th>Harga</th>
                 <th>Actions</th>
             </tr>
@@ -19,6 +20,7 @@
                 <td><?php echo $item->name ?></td>
                 <td><?php echo $item->code ?></td>
                 <td><?php echo $item->amount ?></td>
+                <td><?php echo $this->Model_Category->getName($item->category_id) ?></td>
                 <td><?php echo convert_to_rupiah($item->price) ?></td>
                 <td>
                     <a class="btn btn-sm btn-outline-warning"href="<?php echo base_url('/Index.php/ItemController/edit/').$item->id ?>"><i class="fas fa-pencil-alt"></i></a>

@@ -13,6 +13,11 @@ class Model_Category extends CI_Model
         return $data;
     }
 
+	function getName ($id) {
+        $item = $this->db->where('id', $id)->get('categories')->row_array();
+        return $item['name'];
+    }
+
     function insert($data) {
         $query = ($this->db->insert('categories', $data)) ? TRUE : FALSE ;
         return $query;

@@ -14,6 +14,14 @@
           <input type="text" class="form-control" value="<?php echo $item['code'] ?>" name="code">
         </div>
         <div class="form-group">
+          <label>Kategori Barang</label>
+          <select class="form-control" name="category_id">
+            <?php foreach ($categories as $category) {?>
+            <option value="<?php echo $category->id ?>"><?php echo $category->name ?></option>
+            <?php } ?>
+          </select>
+        </div>
+        <div class="form-group">
           <label>Harga Barang (Rp)</label>
           <input type="number" class="form-control" value="<?php echo $item['price'] ?>" name="price">
         </div>
