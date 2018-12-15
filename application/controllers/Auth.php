@@ -38,9 +38,8 @@ class Auth extends CI_Controller {
         if($this->Model_auth->isLoggedIn()) {
             $this->session->unset_userdata('username');
         }
-        redirect("Home/index");
         $this->session->sess_destroy();
-
+redirect("Home/index");
     }
 
     public function validate_login(){

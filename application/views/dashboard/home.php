@@ -10,11 +10,11 @@
         <?php foreach ($items as $item) {?>
         <div class="col-lg-3 col-md-6 mb-4">
           <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="<?php echo base_url('/assets/images/700x400.jpg')?>" alt="gambar"></a>
+            <a href="<?php echo base_url('/Index.php/ItemController/show/').$item->id ?>"><img class="card-img-top" src="<?php echo base_url('/assets/images/700x400.jpg')?>" alt="gambar"></a>
             <div class="card-body">
               <h4 class="card-title">
                 <a href="<?php echo base_url('/Index.php/ItemController/show/').$item->id ?>">
-                    <?php echo $item->name ?>
+                    <?php echo strtoupper($item->name) ?>
                 </a>
               </h4>
               <h5>

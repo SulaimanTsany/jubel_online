@@ -22,12 +22,23 @@ class searchController extends CI_Controller
         $this->load->view('layout/app_footer');
   }
 
-  
-  public function list($value='')
+
+  public function list()
   {
+      $output='';
+      $query='';
+      if($this->input->post('query')){
+          $query = $this->input->post('query');
+      }
+      $data= $this->Model_search->get($query);
 
+      if($data->num_rows()>0){
+          foreach ($data->result as $set) {
+              $output.='<option value="'.$set->name.'">';
+          }
+      }
+      echo $output;
   }
-
 
 }
 

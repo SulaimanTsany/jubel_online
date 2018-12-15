@@ -7,7 +7,8 @@
         tampilkan gambar kalau perlu
     </div>
     <div class="form-group">
-      <label><?php echo $item['name'] ?></label>
+        <br>
+      <label><h3><?php echo strtoupper($item['name']) ?></h3></label>
     </div>
     <div class="form-group">
       <label>Rp <?php echo $item['price'] ?></label>

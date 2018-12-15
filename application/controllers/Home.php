@@ -11,6 +11,7 @@ class Home extends CI_Controller
     $this->load->model("M_data");
     $this->load->model("Model_login");
     $this->load->model("Model_search");
+    $this->load->model("Model_auth");
 
   }
 
@@ -27,7 +28,17 @@ class Home extends CI_Controller
    $this->load->view('layout/app_footer');
 	}
 
-  
+    public function beranda()
+    {
+
+        $this->load->view('layout/beranda_header');
+        $this->load->view('dashboard/beranda');
+        $this->load->view('layout/beranda_footer');
+    }
+
+
+
+
   function signupPage()
   {
     $this->load->view('signup');

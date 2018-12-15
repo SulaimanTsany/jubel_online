@@ -20,8 +20,8 @@ class ItemController extends CI_Controller
 
     public function show($id) {;
         $data['item'] = $this->Model_Item->get($id);
-        $profil['auth'] = $this->Model_auth->isLoggedIn();
-        $this->load->view('layout/app_header',$profil);
+        $data['auth'] = $this->Model_auth->isLoggedIn();
+        $this->load->view('layout/app_header',$data);
         $this->load->view('item/show_item', $data );
         $this->load->view('layout/app_footer');
     }
@@ -30,10 +30,10 @@ class ItemController extends CI_Controller
     {
         //return view for add new data
         $data['categories'] = $this->Model_Category->getAll()->result();
-        $data['auth'] = $this->Model_auth->isLoggedIn();
+        $profil['auth'] = $this->Model_auth->isLoggedIn();
         $error = "";
 
-        $this->load->view('layout/app_header', $data);
+        $this->load->view('layout/app_header', $profil);
         $this->load->view('item/create_item', $data);
         $this->load->view('layout/app_footer');
     }

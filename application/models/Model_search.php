@@ -22,8 +22,14 @@ class Model_search extends CI_Model
 
   public function get($namabarang)
   {
-      $data = $this->db->where('name', $namabarang)->get('items');
-      return $data;
+      $this->db->select("*");
+      $this->db->from("items");
+      if($namabarang !=''){
+          $this->db->like('name',$namabarang);
+          $this->db->or_like('price',$namabarang);
+      }
+     $this->db->order_by('name','DESC');
+      return $this->db->get();
   }
 
 
