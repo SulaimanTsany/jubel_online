@@ -1,9 +1,13 @@
 <br>
 <div class="container">
+    <?php if ($auth) { ?>
     <a class="btn" href="<?php echo base_url('/Index.php/ItemController/create') ?>">Add New Item</a>
     <a class="btn" href="<?php echo base_url('/Index.php/CategoryController/index') ?>">Index Category</a>
-    <br>
     <p><?php echo $balance;?></p>
+    <?php }else{?>
+        <br>
+        <br>
+    <?php } ?>
     <br>
 
     <div class="row">
@@ -20,9 +24,11 @@
               <h5>
                   <?php echo "Rp ".$item->price ?>
               </h5>
+              <?php if ($auth) { ?>
               <a href="<?php echo base_url('/Index.php/ItemController/edit/').$item->id ?>">edit</a>
               <a href="<?php echo base_url('/Index.php/ItemController/destroy/').$item->id ?>">hapus</a>
               <p class="card-text">Stock = <?php echo $item->amount ?></p>
+                <?php } ?>
             </div>
           </div>
         </div>
