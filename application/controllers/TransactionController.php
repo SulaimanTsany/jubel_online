@@ -5,13 +5,25 @@ class TransactionController extends CI_Controller
     function __construct()
     {
         parent:: __construct();
+        $this->load->model("Model_Item");
         $this->load->model("Model_Transaction");
+        $this->load->model("Model_user");
+        //middleware
+        if ( !$this->Model_user->isLoggedIn()) {
+            redirect("Home/index");
+        } else {
+            $username = $this->session->userdata('username');
+            if ($this->Model_user->getRole($username) != 'admin') {
+                redirect("Home/index");
+            }
+        }
     }
 
     public function index()
     {
         $data['transactions'] = $this->Model_Transaction->getAll()->result();
-        $this->load->view('layout/app_header');
+        $profil['auth'] = $this->Model_user->isLoggedIn();
+        $this->load->view('layout/app_header',$profil);
         $this->load->view('transaction/index_transaction', $data );
         $this->load->view('layout/app_footer');
         //redirect("Home/index");
@@ -20,24 +32,37 @@ class TransactionController extends CI_Controller
     public function create()
     {
         //return view for add new data
-        $this->load->view('layout/app_header');
+        $profil['auth'] = $this->Model_user->isLoggedIn();
+        $this->load->view('layout/app_header',$profil);
         $this->load->view('transaction/create_transaction');
         $this->load->view('layout/app_footer');
     }
 
     public function store()
     {
-        //save new data to database
-        $item_id = $this->input->post('item_id');
-        $user_id = $this->input->post('user_id');
-		$amount = $this->input->post('amount');
-		$data=array(
-			'item_id'=>$item_id,
-            'user_id' =>$user_id,
-			'amount'=>$amount
-		);
-		$this->Model_Transaction->insert($data);
-		$this->index();
+        $balance = $this->Model_user->getBalance($this->input->post('user_id'));
+        $price =  $this->Model_Item->getPrice($this->input->post('item_id')) * $this->input->post('amount');
+        // var_dump($balance);
+        // die();
+        if ($balance >= $price) {
+            //save new data to database
+            $item_id = $this->input->post('item_id');
+            $user_id = $this->input->post('user_id');
+    		$amount = $this->input->post('amount');
+    		$data=array(
+    			'item_id'=>$item_id,
+                'user_id' =>$user_id,
+                'item'=>$this->Model_Item->getName($item_id),
+                'user' =>$this->Model_user->getFullName($user_id),
+    			'amount'=>$amount,
+    		);
+    		$this->Model_Transaction->insert($data);
+            //reduce user balance
+            $this->Model_user->reduceBalance($user_id, $price);
+            //reduce item amount
+            $this->Model_Item->reduceAmount($item_id, $amount);
+        }
+		redirect("TransactionController/index");
     }
 
 /*
@@ -45,7 +70,8 @@ class TransactionController extends CI_Controller
     {
         //return view for edit a data
         $data['transaction'] = $this->Model_Transaction->get($id);
-        $this->load->view('layout/app_header');
+        $profil['auth'] = $this->Model_user->isLoggedIn();
+        $this->load->view('layout/app_header',$profil);
         $this->load->view('transaction/edit_transaction', $data );
         $this->load->view('layout/app_footer');
     }

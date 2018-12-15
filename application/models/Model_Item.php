@@ -13,6 +13,27 @@ class Model_Item extends CI_Model
         return $data;
     }
 
+	function getName ($id) {
+        $item = $this->db->where('id', $id)->get('items')->row_array();
+        return $item['name'];
+    }
+
+	function getPrice ($id) {
+        $item = $this->db->where('id', $id)->get('items')->row_array();
+        return $item['price'];
+    }
+
+	function reduceAmount($id, $amount) {
+        $item = $this->get($id);
+        $data['amount'] = $item['amount'] - $amount;
+        $this->db->where("id", $id)->update('items', $data);
+    }
+
+	function getPrice_in_rupiah ($id) {
+		$price = $this->getPrice($id);
+		return 'Rp. '.strrev(implode('.',str_split(strrev(strval($price)),3)));
+	}
+
     function insert($data) {
         $query = ($this->db->insert('items', $data)) ? TRUE : FALSE ;
         return $query;

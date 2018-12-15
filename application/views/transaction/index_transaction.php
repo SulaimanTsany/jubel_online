@@ -9,8 +9,8 @@
         </tr>
         <?php foreach ($transactions as $transaction) {?>
         <tr>
-            <td><?php echo $transaction->item_id?></td>
-            <td><?php echo $transaction->user_id?></td>
+            <td><?php echo $transaction->item?></td>
+            <td><?php echo $transaction->user?></td>
             <td><?php echo $transaction->amount?></td>
             <td><?php echo $transaction->date?></td>
         </tr>

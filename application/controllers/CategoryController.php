@@ -7,12 +7,23 @@ class CategoryController extends CI_Controller
     {
         parent:: __construct();
         $this->load->model("Model_Category");
+        $this->load->model("Model_user");
+        //middleware
+        if ( !$this->Model_user->isLoggedIn()) {
+            redirect("Home/index");
+        } else {
+            $username = $this->session->userdata('username');
+            if ($this->Model_user->getRole($username) != 'admin') {
+                redirect("Home/index");
+            }
+        }
     }
 
     public function index()
     {
         $categories['categories'] = $this->Model_Category->getAll()->result();
-        $this->load->view('layout/app_header');
+        $profil['auth'] = $this->Model_user->isLoggedIn();
+        $this->load->view('layout/app_header',$profil);
         $this->load->view('category/index_category', $categories );
         $this->load->view('layout/app_footer');
     }
@@ -20,7 +31,8 @@ class CategoryController extends CI_Controller
     public function create()
     {
         //return view for add new data
-        $this->load->view('layout/app_header');
+        $profil['auth'] = $this->Model_user->isLoggedIn();
+        $this->load->view('layout/app_header',$profil);
         $this->load->view('category/create_category');
         $this->load->view('layout/app_footer');
     }
@@ -40,7 +52,8 @@ class CategoryController extends CI_Controller
     {
         //return view for edit a data
         $data['category'] = $this->Model_Category->get($id);
-        $this->load->view('layout/app_header');
+        $profil['auth'] = $this->Model_user->isLoggedIn();
+        $this->load->view('layout/app_header',$profil);
         $this->load->view('category/edit_category', $data );
         $this->load->view('layout/app_footer');
     }
