@@ -2,7 +2,6 @@
 defined('BASEPATH') or exit('No direct sricpt access allowed');
 class Home extends CI_Controller
 {
-<<<<<<< HEAD
     function __construct()
     {
         parent:: __construct();
@@ -12,26 +11,14 @@ class Home extends CI_Controller
         $this->load->model("M_data");
         $this->load->model("Model_login");
         $this->load->model("Model_search");
-=======
-  function __construct()
-  {
-    parent:: __construct();
-    $this->load->model("Model_data");
-    $this->load->model("Model_Item");
-    $this->load->model("Model_user");
-    $this->load->model("M_data");
-    $this->load->model("Model_login");
-    $this->load->model("Model_search");
-    $this->load->model("Model_auth");
->>>>>>> b50cd52a3ba49e7820d72aa43653adf1f315bbc8
-
+        $this->load->model("Model_auth");
     }
 
     public function index()
     {
         $data['items'] = $this->Model_Item->getAll()->result();
         $data['auth'] = $this->isLoggedIn();
-        $data['balance'] = $this->convert_to_rupiah(0);
+        //$data['balance'] = $this->convert_to_rupiah(0);
         if ($data['auth'] == true) {
             $data['balance'] = $this->convert_to_rupiah($this->user->balance);
         }
@@ -46,8 +33,14 @@ class Home extends CI_Controller
         }
     }
 
-<<<<<<< HEAD
-=======
+    public function index_user_view () {
+        $data['items'] = $this->Model_Item->getAll()->result();
+        $data['auth'] = $this->isLoggedIn();
+        $this->load->view('layout/app_header', $data);
+        $this->load->view('dashboard/home', $data);
+        $this->load->view('layout/app_footer');
+    }
+
     public function beranda()
     {
 
@@ -55,15 +48,6 @@ class Home extends CI_Controller
         $this->load->view('dashboard/beranda');
         $this->load->view('layout/beranda_footer');
     }
-
-
-
-
-  function signupPage()
-  {
-    $this->load->view('signup');
-  }
->>>>>>> b50cd52a3ba49e7820d72aa43653adf1f315bbc8
 
     function signupPage()
     {

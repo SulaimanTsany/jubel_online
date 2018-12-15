@@ -5,7 +5,7 @@
         <div class="login-form">
             <div class="main-div">
                 <div class="panel">
-                   <h2>Login</h2>
+                   <h2>Login </h2>
                    <p>Please fill to login</p>
                 </div>
                <form id="Login" action="<?php echo base_url('/Index.php/auth/validate_login') ?>" method="post">

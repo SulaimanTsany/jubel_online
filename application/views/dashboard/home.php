@@ -1,13 +1,5 @@
 <br>
 <div class="container">
-    <?php if ($auth) { ?>
-    <a class="btn" href="<?php echo base_url('/Index.php/ItemController/create') ?>">Add New Item</a>
-    <a class="btn" href="<?php echo base_url('/Index.php/CategoryController/index') ?>">Index Category</a>
-    <p><?php echo $balance;?></p>
-    <?php }else{?>
-        <br>
-        <br>
-    <?php } ?>
     <br>
 
     <div class="row">
@@ -16,19 +8,15 @@
           <div class="card h-100">
             <a href="<?php echo base_url('/Index.php/ItemController/show/').$item->id ?>"><img class="card-img-top" src="<?php echo base_url('/assets/images/700x400.jpg')?>" alt="gambar"></a>
             <div class="card-body">
-              <h4 class="card-title">
+              <h5 class="card-title">
                 <a href="<?php echo base_url('/Index.php/ItemController/show/').$item->id ?>">
                     <?php echo strtoupper($item->name) ?>
                 </a>
-              </h4>
-              <h5>
+            </h5>
+              <h6>
                   <?php echo "Rp ".$item->price ?>
-              </h5>
-              <?php if ($auth) { ?>
-              <a href="<?php echo base_url('/Index.php/ItemController/edit/').$item->id ?>">edit</a>
-              <a href="<?php echo base_url('/Index.php/ItemController/destroy/').$item->id ?>">hapus</a>
+              </h6>
               <p class="card-text">Stock = <?php echo $item->amount ?></p>
-                <?php } ?>
             </div>
           </div>
         </div>

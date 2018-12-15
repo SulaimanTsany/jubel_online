@@ -64,24 +64,28 @@
     <br>
     <br>
     <div class="">
-        <table class="table">
-            <tr>
-                <th>Username</th>
-                <th>Full Name</th>
-                <th>Saldo</th>
-                <th>Actions</th>
-            </tr>
-            <?php foreach ($users as $user) {?>
-            <tr>
-                <td><?php echo $user->username ?></td>
-                <td><?php echo $user->full_name ?></td>
-                <td><?php echo convert_to_rupiah($user->balance) ?></td>
-                <td>
-                    <?php if ($this->session->userdata('username') == $user->username) { continue; }?>
-                    <button type="button" name="button" class="btn btn-danger btn-sm">tombol</button>
-                </td>
-            </tr>
-            <?php } ?>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Full Name</th>
+                    <th>Saldo</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($users as $user) {?>
+                <tr>
+                    <td><?php echo $user->username ?></td>
+                    <td><?php echo $user->full_name ?></td>
+                    <td><?php echo convert_to_rupiah($user->balance) ?></td>
+                    <td>
+                        <?php if ($this->session->userdata('username') == $user->username) { continue; }?>
+                        <button type="button" name="button" class="btn btn-danger btn-sm"><i class="fas fa-pencil-alt"></i></button>
+                    </td>
+                </tr>
+                <?php } ?>
+            </tbody>
         </table>
     </div>
 
