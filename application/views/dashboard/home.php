@@ -1,28 +1,34 @@
 <br>
 <div class="container">
+    <?php if ($auth) { ?>
     <a class="btn" href="<?php echo base_url('/Index.php/ItemController/create') ?>">Add New Item</a>
     <a class="btn" href="<?php echo base_url('/Index.php/CategoryController/index') ?>">Index Category</a>
-    <br>
     <p><?php echo $balance;?></p>
+    <?php }else{?>
+        <br>
+        <br>
+    <?php } ?>
     <br>
 
     <div class="row">
         <?php foreach ($items as $item) {?>
         <div class="col-lg-3 col-md-6 mb-4">
           <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="<?php echo base_url('/assets/images/700x400.jpg')?>" alt="gambar"></a>
+            <a href="<?php echo base_url('/Index.php/ItemController/show/').$item->id ?>"><img class="card-img-top" src="<?php echo base_url('/assets/images/700x400.jpg')?>" alt="gambar"></a>
             <div class="card-body">
               <h4 class="card-title">
                 <a href="<?php echo base_url('/Index.php/ItemController/show/').$item->id ?>">
-                    <?php echo $item->name ?>
+                    <?php echo strtoupper($item->name) ?>
                 </a>
               </h4>
               <h5>
                   <?php echo "Rp ".$item->price ?>
               </h5>
+              <?php if ($auth) { ?>
               <a href="<?php echo base_url('/Index.php/ItemController/edit/').$item->id ?>">edit</a>
               <a href="<?php echo base_url('/Index.php/ItemController/destroy/').$item->id ?>">hapus</a>
               <p class="card-text">Stock = <?php echo $item->amount ?></p>
+                <?php } ?>
             </div>
           </div>
         </div>

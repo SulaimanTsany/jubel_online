@@ -2,6 +2,7 @@
 defined('BASEPATH') or exit('No direct sricpt access allowed');
 class Home extends CI_Controller
 {
+<<<<<<< HEAD
     function __construct()
     {
         parent:: __construct();
@@ -11,6 +12,18 @@ class Home extends CI_Controller
         $this->load->model("M_data");
         $this->load->model("Model_login");
         $this->load->model("Model_search");
+=======
+  function __construct()
+  {
+    parent:: __construct();
+    $this->load->model("Model_data");
+    $this->load->model("Model_Item");
+    $this->load->model("Model_user");
+    $this->load->model("M_data");
+    $this->load->model("Model_login");
+    $this->load->model("Model_search");
+    $this->load->model("Model_auth");
+>>>>>>> b50cd52a3ba49e7820d72aa43653adf1f315bbc8
 
     }
 
@@ -33,6 +46,24 @@ class Home extends CI_Controller
         }
     }
 
+<<<<<<< HEAD
+=======
+    public function beranda()
+    {
+
+        $this->load->view('layout/beranda_header');
+        $this->load->view('dashboard/beranda');
+        $this->load->view('layout/beranda_footer');
+    }
+
+
+
+
+  function signupPage()
+  {
+    $this->load->view('signup');
+  }
+>>>>>>> b50cd52a3ba49e7820d72aa43653adf1f315bbc8
 
     function signupPage()
     {
