@@ -30,6 +30,11 @@ class Model_user extends CI_Model {
         return $data;
     }
 
+    function getUserId ($username) {
+        $data = $this->db->get_where('users', array('username' => $username))->row_array();
+        return $data['id'];
+    }
+
     function getRole ($username) {
         $user = $this->db->where('username', $username)->get('users')->row_array();
         return $user['role'];

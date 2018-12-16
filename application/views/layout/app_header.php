@@ -21,12 +21,11 @@
 </head>
 <body>
 
-    <div class="jumbotron">
     <?php function convert_to_rupiah($angka) {
         return 'Rp. '.strrev(implode('.',str_split(strrev(strval($angka)),3)));
     } ?>
 
-    <nav class="navbar navbar-expand-lg ">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="<?php echo base_url() ?>"><i class="fas fa-shopping-cart"></i> Jubel Online</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -34,10 +33,10 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="<?php echo base_url() ?>">Home <span class="sr-only">(current)</span></a>
+                </li>
                 <?php if ((isset($auth) && $auth) && $this->Model_user->getRole($this->session->userdata('username')) == 'admin') { ?>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="<?php echo base_url() ?>">Home <span class="sr-only">(current)</span></a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo base_url("Index.php/Admin/topUp_form") ?>">TopUp</a>
                     </li>
@@ -62,6 +61,16 @@
                             <a class="dropdown-item" href="<?php echo base_url("Index.php/CategoryController/create") ?>">Add Category</a>
                         </div>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?php echo base_url("Index.php/TransactionController/index") ?>") ?>Riwayat Transaksi</a>
+                    </li>
+                <?php } else if (isset($auth) && $auth){?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#") ?><?php echo $this->user->full_name ?></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#") ?><?php echo convert_to_rupiah($this->user->balance) ?></a>
+                    </li>
                 <?php } ?>
             </ul>
             <form  action="<?php echo base_url("/Index.php/searchController/index") ?>"class="form-inline my-2 my-lg-0" method="post">
@@ -69,6 +78,7 @@
                 <datalist id="Listbarang"></datalist>
                 <button class="btn btn-outline-success btn-sm my-2 my-sm-0" value="caribarang" type="submit">Search</button>
             </form>
+            &nbsp; &nbsp;
             <?php if (isset($auth) && $auth) { ?>
                 <a class="btn btn-sm" href=""> <i class="fas fa-user"></i> <?php echo $this->session->userdata('username')?></a>
                 <a class="btn btn-sm" href="<?php echo base_url('/Index.php/auth/logout') ?>">Logout <i class="fas fa-sign-out-alt"></i></a>
@@ -78,4 +88,3 @@
             <?php } ?>
         </div>
     </nav>
-</div>
