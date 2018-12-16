@@ -61,11 +61,13 @@ class Home extends CI_Controller
                 'user' =>$this->Model_user->getFullName($user_id),
     			'amount'=>$amount,
     		);
-    		$this->Model_Transaction->insert($data);
-            //reduce user balance
-            $this->Model_user->reduceBalance($user_id, $price);
-            //reduce item amount
-            $this->Model_Item->reduceAmount($item_id, $amount);
+            if ($price >= $this->user->balance ) {
+                $this->Model_Transaction->insert($data);
+                //reduce user balance
+                $this->Model_user->reduceBalance($user_id, $price);
+                //reduce item amount
+                $this->Model_Item->reduceAmount($item_id, $amount);
+            }
         }
         redirect("Home/index");
     }

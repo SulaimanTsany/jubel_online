@@ -38,10 +38,7 @@
                 </li>
                 <?php if ((isset($auth) && $auth) && $this->Model_user->getRole($this->session->userdata('username')) == 'admin') { ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url("Index.php/Admin/topUp_form") ?>">TopUp</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#") ?>User</a>
+                        <a class="nav-link" href="<?php echo base_url("Index.php/Admin/topUp_form") ?>">Users</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a id="navbarItemDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -61,10 +58,19 @@
                             <a class="dropdown-item" href="<?php echo base_url("Index.php/CategoryController/create") ?>">Add Category</a>
                         </div>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a id="navbarCategoryDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Laporan
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarCategoryDropdown">
+                            <a class="dropdown-item" href="<?php echo base_url("Index.php/LaporanController/laporanAplikasi") ?>">Laporan Aplikasi</a>
+                            <a class="dropdown-item" href="<?php echo base_url("Index.php/LaporanController/laporanTransaksi") ?>">Laporan Transaksi</a>
+                        </div>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo base_url("Index.php/TransactionController/index") ?>") ?>Riwayat Transaksi</a>
                     </li>
-                <?php } else if (isset($auth) && $auth){?>
+                <?php } else if (isset($auth) && $auth) {?>
                     <li class="nav-item">
                         <a class="nav-link" href="#") ?><?php echo $this->user->full_name ?></a>
                     </li>
