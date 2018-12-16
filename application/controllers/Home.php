@@ -47,7 +47,7 @@ class Home extends CI_Controller
     function buyItem () {
         $balance = $this->Model_user->getBalance($this->input->post('user_id'));
         $price =  $this->Model_Item->getPrice($this->input->post('item_id')) * $this->input->post('amount');
-        // var_dump($balance);
+        // var_dump($this->input->post('amount'));
         // die();
         if ($balance >= $price) {
             //save new data to database
@@ -61,7 +61,7 @@ class Home extends CI_Controller
                 'user' =>$this->Model_user->getFullName($user_id),
     			'amount'=>$amount,
     		);
-            if ($price >= $this->user->balance ) {
+            if ($price >= $this->user->balance && ($this->Model_Item->getAmount($item_id) - $amount) >=0) {
                 $this->Model_Transaction->insert($data);
                 //reduce user balance
                 $this->Model_user->reduceBalance($user_id, $price);
