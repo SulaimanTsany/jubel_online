@@ -9,6 +9,19 @@ class thumbnail extends CI_Controller
         $this->load->library('image_lib');
     }
 
+    public function index()
+    {
+        $this->load->view('upload');
+    }
+
+
+    public function prosesupload()
+    {
+        if(isset($_FILE['file']['name'])){
+        
+        }
+    }
+
     function upload(){
         $config['upload_path']          = './uploads/';
         $config['allowed_types']        = 'gif|jpg|png';

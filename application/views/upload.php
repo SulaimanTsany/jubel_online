@@ -5,9 +5,10 @@
     <title></title>
   </head>
   <body>
-    <form method="POST" action="<?php echo base_url('Index.php/home/index')?>" enctype="multipart/form-data">
-              <input type="file" name="gambar" />
-              <input type="submit" name="upload_image" value="Upload" />
-      </form>
+
+      <?php echo form_open_multipart(''); ?>
+              <input type="file" name="file" />
+              <input type="submit"  value="Upload" />
+      <?php echo form_close() ?>
   </body>
 </html>

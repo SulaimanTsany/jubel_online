@@ -100,6 +100,10 @@ redirect("Home/index");
         $data['full_name'] = $full_name;
         $data['password'] = $hashedPassword;
         $this->Model_user->insert($data);
+        $session_data = array(
+            'username' => $username
+        );
+        $this->session->set_userdata($session_data);
         redirect("Home/index");
 
         // $this->form_validation->set_rules('username', 'Username', 'required|min_length[3]|max_length[20]');

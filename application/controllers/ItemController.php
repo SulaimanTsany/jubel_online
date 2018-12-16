@@ -65,14 +65,15 @@ class ItemController extends CI_Controller
             'category_id'=>$category_id,
 			'amount'=>$amount
 		);
-        $image = $this->input->post('image');
+        /*$image = $this->input->post('image');
         $path = array (
             'name'=>$image,
             //'item_id'=>"1",
             'path' => "assets/images/"
         );
-		$this->Model_Item->insert($item);
-        $this->Model_Image->insert($path);
+		$
+        $this->Model_Image->insert($path);*/
+        $this->Model_Item->insert($item);
 		$this->index();
     }
 
