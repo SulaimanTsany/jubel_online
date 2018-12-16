@@ -25,7 +25,7 @@
         return 'Rp. '.strrev(implode('.',str_split(strrev(strval($angka)),3)));
     } ?>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <a class="navbar-brand" href="<?php echo base_url() ?>"><i class="fas fa-shopping-cart"></i> Jubel Online</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -63,8 +63,8 @@
                             Laporan
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarCategoryDropdown">
-                            <a class="dropdown-item" href="<?php echo base_url("Index.php/LaporanController/laporanAplikasi") ?>">Laporan Aplikasi</a>
-                            <a class="dropdown-item" href="<?php echo base_url("Index.php/LaporanController/laporanTransaksi") ?>">Laporan Transaksi</a>
+                            <a class="dropdown-item" href="<?php echo base_url("Index.php/LaporanController/laporanAplikasi") ?>" target="blank">Laporan Aplikasi</a>
+                            <a class="dropdown-item" href="<?php echo base_url("Index.php/LaporanController/laporanTransaksi") ?>" target="blank">Laporan Transaksi</a>
                         </div>
                     </li>
                     <li class="nav-item">

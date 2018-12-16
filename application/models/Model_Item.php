@@ -22,6 +22,10 @@ class Model_Item extends CI_Model
         $item = $this->db->where('id', $id)->get('items')->row_array();
         return $item['price'];
     }
+	function getAmount ($id) {
+        $item = $this->db->where('id', $id)->get('items')->row_array();
+        return $item['amount'];
+    }
 
 	function reduceAmount($id, $amount) {
         $item = $this->get($id);

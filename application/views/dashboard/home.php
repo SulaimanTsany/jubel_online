@@ -1,6 +1,5 @@
-<div class="jumbotron bg-gradient-danger">
+<div class="jumbotron bg-dark" >
     <div class="row">
-        <br>
         <div id="carouselExampleIndicators" class="carousel slide mx-auto" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -102,7 +101,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-sm-3 col-form-label">Jumlah</label>
                                                     <div class="col-sm-9">
-                                                        <input type="number" class="form-control" placeholder="1" min="1" max="<?php echo $item->amount ?>" name="amount">
+                                                        <input type="number" class="form-control" value="1" min="1" max="<?php echo $item->amount ?>" name="amount">
                                                     </div>
                                                 </div>
                                             </div>

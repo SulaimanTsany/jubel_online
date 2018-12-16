@@ -14,9 +14,9 @@
           <input type="number" class="form-control" placeholder="" name="user_id">
         </div>
         <div class="form-group">
-          <label>Amount</label>
+          <label>Jumlah</label>
           <input type="number" class="form-control" placeholder="" name="amount">
         </div>
-        <button type="submit" class="btn">Add</button>
+        <button type="submit" class="btn btn-success">Add</button>
     </form>
 </div>

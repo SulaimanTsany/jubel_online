@@ -11,9 +11,13 @@
             return 'Rp. '.strrev(implode('.',str_split(strrev(strval($angka)),3)));
         } ?>
 
-        <br>
         <div class="">
-            <h2>Daftar User</h2>
+            <h2 class="text-center">Laporan Aplikasi Jubel </h2>
+            <p class="text-sm-center" size="10"><?php date_default_timezone_set('Asia/Kuala_Lumpur'); echo date("F j, Y, g:i a") ?></p>
+        </div>
+
+        <div class="">
+            <h3>Daftar User</h3>
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -37,7 +41,7 @@
         </div>
         <br>
         <div class="">
-            <h2>Daftar Barang</h2>
+            <h3>Daftar Barang</h3>
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -65,7 +69,7 @@
         </div>
         <br>
         <div class="">
-            <h2>Daftar Kategori</h2>
+            <h3>Daftar Kategori</h3>
             <table class="table table-bordered">
                 <thead>
                     <tr>

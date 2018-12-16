@@ -35,7 +35,7 @@
             <input type="file" class="form-control-file" name="image">
         </div>
         -->
-        <button type="submit" class="btn">Tambahkan</button>
+        <button type="submit" class="btn btn-success">Tambahkan</button>
     </form>
 
     <br>

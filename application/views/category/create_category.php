@@ -9,6 +9,6 @@
           <label>Category</label>
           <input type="text" class="form-control" placeholder="category" name="name">
         </div>
-        <button type="submit" class="btn">Add</button>
+        <button type="submit" class="btn btn-success">Tambahkan</button>
     </form>
 </div>

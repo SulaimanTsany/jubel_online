@@ -8,21 +8,24 @@
     </head>
     <body>
         <div class="">
-            <h2>Riwayat Transaksi</h2>
-            <br>
+            <h2 class="text-center">Riwayat Transaksi</h2>
+            <p class="text-sm-center" size="10"><?php date_default_timezone_set('Asia/Kuala_Lumpur'); echo date("F j, Y, g:i a") ?></p>
+        </div>
+        <br>
+        <div class="">
             <table class="table table-bordered">
                 <tr>
-                    <th>No</th>
-                    <th>Item</th>
+                    <th width="25px">No</th>
                     <th>User</th>
-                    <th>Jumlah</th>
+                    <th>Item</th>
+                    <th width="55px">Jumlah</th>
                     <th>Tanggal</th>
                 </tr>
                 <?php $no=1; foreach ($transactions as $transaction) {?>
                 <tr>
                     <td><?php echo $no++ ?></td>
-                    <td><?php echo $transaction->item?></td>
                     <td><?php echo $transaction->user?></td>
+                    <td><?php echo $transaction->item?></td>
                     <td><?php echo $transaction->amount?></td>
                     <td><?php echo $transaction->date?></td>
                 </tr>
