@@ -9,17 +9,24 @@ class searchController extends CI_Controller
     $this->load->model("Model_search");
     $this->load->model("Model_Item");
     $this->load->model('Model_auth');
+    $this->load->model('Model_user');
 
   }
 
   public function index()
   {
-        $cari = $this->input->post("inputBarang");
-        $data['auth'] = $this->Model_auth->isLoggedIn();
-        $items['items'] = $this->Model_search->get($cari)->result();
-        $this->load->view('layout/app_header',$data);
-        $this->load->view('search',$items);
-        $this->load->view('layout/app_footer');
+
+      $data['items'] = $this->Model_Item->getAll()->result();
+      $data['auth'] = $this->Model_auth->isLoggedIn();
+      $cari = $this->input->post("inputBarang");
+      $items['items'] = $this->Model_search->get($cari)->result();
+
+
+
+          $this->load->view('layout/search_header', $data);
+          $this->load->view('search', $items);
+          $this->load->view('layout/app_footer');
+
   }
 
 

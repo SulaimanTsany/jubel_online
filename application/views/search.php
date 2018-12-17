@@ -1,4 +1,7 @@
 <div class="container">
+    <br>
+    <br>
+    <div class="jumbotron">
     <?php foreach ($items as $item) {?>
       <br>
       <diV class="row">
@@ -11,4 +14,5 @@
       </li>
     </div>
     <?php } ?>
+    </div>
 </div>

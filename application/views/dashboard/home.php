@@ -3,7 +3,7 @@
         <div id="carouselExampleIndicators" class="carousel slide mx-auto" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="d-block w-100" src="<?php echo base_url('/assets/images/700x400.jpg')?>" alt="First slide">
+                    <img class="d-block w-100" src="<?php echo base_url('/product/default.jpg')?>" alt="First slide">
                     <div class="carousel-caption d-none d-md-block">
                         <h3>JUBEL</h3>
 
@@ -15,13 +15,13 @@
                         break;
                     }?>
                     <div class="carousel-item ">
-                        <img class="d-block w-100" src="<?php echo base_url('/assets/images/700x400.jpg')?>" alt="First slide">
+                        <img class="d-block w-100" src="<?php echo base_url('/product/default.jpg') ?>" alt="First slide">
                         <div class="carousel-caption d-none d-md-block">
                             <h3><?php echo ($item->name) ?></h3>
                             <p><?php echo convert_to_rupiah($item->price) ?></p>
                         </div>
                     </div>
-                <?php } ?>
+                <?php $i++ ;} ?>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -38,10 +38,13 @@
 <div class="container">
     <br>
     <div class="row">
+
+
         <?php foreach ($items as $item) {?>
             <div class="col-lg-3 col-md-6 mb-4">
                 <div class="card h-100">
-                    <a href="<?php echo base_url('/Index.php/ItemController/show/').$item->id ?>"><img class="card-img-top" src="<?php echo base_url('/assets/images/700x400.jpg')?>" alt="gambar"></a>
+                    <a href="<?php echo base_url('/Index.php/ItemController/show/').$item->id ?>">
+                    <img class="card-img-top" src="<?php if($item->path_image != ''){echo base_url($item->path_image);}else{echo base_url('/product/default.jpg');}?>" alt="gambar"></a>
                     <div class="card-body">
                         <h5 class="card-title">
                             <a href="<?php echo base_url('/Index.php/ItemController/show/').$item->id ?>">

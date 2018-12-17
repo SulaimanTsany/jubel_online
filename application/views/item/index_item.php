@@ -27,6 +27,7 @@
                     <a class="btn btn-sm btn-danger"href="<?php echo base_url('/Index.php/ItemController/destroy/').$item->id ?>"><i class="fas fa-trash-alt"></i></a>
                 </td>
             </tr>
+            
             <?php } ?>
         </tbody>
     </table>

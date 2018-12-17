@@ -58,21 +58,17 @@ class ItemController extends CI_Controller
 		$price = $this->input->post('price');
         $category_id = $this->input->post('category_id');
 		$amount = $this->input->post('amount');
+        $path_image='';
 		$item=array(
 			'name'=>$name,
             'code' =>$code,
 			'price'=>$price,
             'category_id'=>$category_id,
-			'amount'=>$amount
+			'amount'=>$amount,
+            'path_image'=>$path_image
 		);
-        /*$image = $this->input->post('image');
-        $path = array (
-            'name'=>$image,
-            //'item_id'=>"1",
-            'path' => "assets/images/"
-        );
-		$
-        $this->Model_Image->insert($path);*/
+
+
         $this->Model_Item->insert($item);
 		$this->index();
     }
@@ -114,6 +110,7 @@ class ItemController extends CI_Controller
         $this->load->view('layout/app_footer');
     }
 
+
     public function update() {
         //update a data
         $id = $this->input->post('id');
@@ -122,21 +119,51 @@ class ItemController extends CI_Controller
 		$price = $this->input->post('price');
         $category_id = $this->input->post('category_id');
 		$amount = $this->input->post('amount');
-		$data = array(
-			'name'=>$name,
-			'price'=>$price,
-            'code' =>$code,
-            'category_id'=>$category_id,
-			'amount'=>$amount
-		);
-		$this->Model_Item->update($id, $data);
-		$this->index();
+        if(isset($_FILES['gambar']['name'])){
+        $config['upload_path']          = './product/';
+        $config['allowed_types']        = 'jpeg|gif|jpg|png';
+        $this->load->library('upload', $config);
+
+        if(!$this->upload->do_upload('gambar')){
+            echo $this->upload->display_errors();
+        }else {
+            $data = $this->upload->data();
+
+            $config['image_library'] = 'gd2';
+            $config['source_image'] = './product/'.$data['file_name'];
+            $config['create_thumb'] = FALSE;
+            $config['maintain_ratio'] = FALSE;
+            $config['width']          = 700;
+            $config['height']         = 400;
+            $config['new_image'] = './product/thumb/'.$data['file_name'];
+
+            $this->load->library('image_lib',$config);
+            $this->image_lib->resize();
+            $nama = $data['file_name'];
+            $lokasi = '/product/thumb/'.$data['file_name'];
+            $dataupdate = array(
+    			'name'=>$name,
+    			'price'=>$price,
+                'code' =>$code,
+                'category_id'=>$category_id,
+    			'amount'=>$amount,
+                'path_image'=>$lokasi
+    		);
+            $this->Model_Item->update($id, $dataupdate);
+            if($this->Model_Item->update($id, $dataupdate)){
+                $this->index();
+            }
+        }
+        }else{
+            echo "error variabel";
+        }
     }
 
     public function destroy($id)
     {
         //delete a data from database
         $this->Model_Item->delete($id);
+        $this->Model_Image->delete($id);
         $this->index();
     }
 

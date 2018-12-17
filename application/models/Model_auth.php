@@ -5,7 +5,9 @@ class Model_auth extends CI_Model
 
 
     function isLoggedIn(){
-        if($this->session->userdata('username') != null){
+        if($this->session->userdata('username') != null) {
+            $username = $this->session->userdata('username');
+            $this->user = $this->Model_user->find($username);
             return true;
         }
         return false;

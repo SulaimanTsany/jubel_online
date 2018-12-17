@@ -48,6 +48,8 @@ class Model_Item extends CI_Model
         return $query;
     }
 
+	
+
     function delete($id) {
         $query = ($this->db->where("id", $id)->delete('items')) ? TRUE : FALSE ;
         return $query;

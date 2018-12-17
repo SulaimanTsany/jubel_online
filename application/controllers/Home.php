@@ -14,12 +14,14 @@ class Home extends CI_Controller
         $this->load->model("Model_login");
         $this->load->model("Model_search");
         $this->load->model("Model_auth");
+        $this->load->model("Model_Image");
     }
 
     public function index()
     {
         $data['items'] = $this->Model_Item->getAll()->result();
         $data['auth'] = $this->isLoggedIn();
+        
         //$data['balance'] = $this->convert_to_rupiah(0);
         if ($data['auth'] == true) {
             $data['user_id'] = $this->user->id;

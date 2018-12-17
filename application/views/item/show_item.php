@@ -4,7 +4,8 @@
         <h2>Detail Barang</h2>
     </label>
     <div class="">
-        tampilkan gambar kalau perlu
+        <img width="200" height="200" src="<?php if($item['path_image'] != ''){echo base_url($item['path_image']);}else{echo base_url('/product/default.jpg');}?>" alt="gambar">
+
     </div>
     <div class="form-group">
         <br>

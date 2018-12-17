@@ -16,12 +16,12 @@ class Model_Image extends CI_Model
     }
 
     function update($id, $data) {
-        $query = ($this->db->where("id", $id)->update('images', $data)) ? TRUE : FALSE ;
+        $query = ($this->db->where("item_id", $id)->update('images', $data)) ? TRUE : FALSE ;
         return $query;
     }
 
     function delete($id) {
-        $query = ($this->db->where("id", $id)->delete('images')) ? TRUE : FALSE ;
+        $query = ($this->db->where("item_id", $id)->delete('images')) ? TRUE : FALSE ;
         return $query;
     }
 }
