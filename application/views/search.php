@@ -3,6 +3,7 @@
     <br>
     <div class="jumbotron">
     <?php foreach ($items as $item) {?>
+        <?php if($item->id==''){?> <h2>Pencaharian Tidak ditemukan</h2>  <?php break;}else{ ?>
       <br>
       <diV class="row">
       <li class="media">
@@ -13,6 +14,6 @@
         </div>
       </li>
     </div>
-    <?php } ?>
+    <?php }} ?>
     </div>
 </div>

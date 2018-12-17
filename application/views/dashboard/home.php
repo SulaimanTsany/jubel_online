@@ -2,22 +2,24 @@
     <div class="row">
         <div id="carouselExampleIndicators" class="carousel slide mx-auto" data-ride="carousel">
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img class="d-block w-100" src="<?php echo base_url('/product/default.jpg')?>" alt="First slide">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h3>JUBEL</h3>
 
-                    </div>
-                </div>
                 <?php $i=0 ?>
                 <?php foreach ($items as $item) {?>
+                    <?php if ($i==0){ ?>
+                        <div class="carousel-item active">
+                            <img class="d-block w-100" src="<?php echo base_url('/product/thumb/Jubel_loading.png')?>" alt="First slide">
+                            <div class="carousel-caption d-none d-md-block text-dark bg-light">
+                                <h2>JUBEL</h2>
+                            </div>
+                        </div>
+                    <?php }?>
                     <?php if ($i==3){
                         break;
                     }?>
                     <div class="carousel-item ">
-                        <img class="d-block w-100" src="<?php echo base_url('/product/default.jpg') ?>" alt="First slide">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h3><?php echo ($item->name) ?></h3>
+                        <img class="d-block w-100" src="<?php if($item->path_image != ''){echo base_url($item->path_image);}else{echo base_url('/product/default.jpg');}?>" alt="First slide">
+                        <div class="carousel-caption d-none d-md-block text-dark bg-light">
+                            <h2><?php echo ($item->name) ?></h2>
                             <p><?php echo convert_to_rupiah($item->price) ?></p>
                         </div>
                     </div>

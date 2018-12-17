@@ -4,7 +4,7 @@
     <label>
         <h2>Tambah Barang</h2>
     </label>
-    <form action="<?php echo base_url('/Index.php/ItemController/store')?>" method="POST">
+    <form action="<?php echo base_url('/Index.php/ItemController/store')?>" method="post" enctype="multipart/form-data">
         <div class="form-group">
           <label>Nama Barang</label>
           <input type="text" class="form-control" placeholder="nama barang" name="name">
@@ -35,7 +35,8 @@
             <input type="file" class="form-control-file" name="image">
         </div>
         -->
-        <button type="submit" class="btn btn-success">Tambahkan</button>
+        <input type="file" name="gambar" />
+        <button type="submit" class="btn">Tambahkan</button>
     </form>
 
     <br>
